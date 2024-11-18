@@ -1,4 +1,5 @@
-class footballer:
+
+class Footballer:
     def __init__(self, name="UNK", start_rank=0, wins=0, losses=0, draws=0, points=0):
         self.name = name
         self.start_rank = start_rank

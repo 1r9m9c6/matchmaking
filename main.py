@@ -1,17 +1,40 @@
-from footballer import footballer
+from footballer import Footballer
+from teams import Teams
 
-players = [
-footballer(name="Philipp", start_rank=3),
-footballer(name="Mormar", start_rank=3),
-footballer(name="Sboben", start_rank=4),
-footballer(name="Mic", start_rank=2),
-footballer(name="Karim", start_rank=3),
-footballer(name="Duccio", start_rank=1),
-footballer(name="Akil", start_rank=3),
+players_pool = [
+Footballer(name="Philipp", start_rank=3),
+Footballer(name="Mormar", start_rank=3),
+Footballer(name="Sboben", start_rank=4),
+Footballer(name="Mic", start_rank=2),
+Footballer(name="Karim", start_rank=3),
+Footballer(name="Duccio", start_rank=1),
 ]
 
+
 if __name__ == "__main__":
-    for player in players:
-        print(f"name: {player.name}\n\toverall_rank {player.overall_rank}\n\tvictory rate {player.victory_rate}")
-    # players.name.sort()
-    print(players.name)
+
+    # Read pool of players from csv
+
+    # sort the pool of players (list) by alphabetic order 
+    players_pool.sort(key=lambda player: player.name.lower())
+
+    #TODO: read available_players_names from csv
+    available_players=[]
+    available_players_names = ["Philipp", "Mormar", "Akil"]
+    for available_player in available_players_names:
+        if available_player in [player.name for player in players_pool]:
+            print(f"{available_player} already in pool")
+        else:
+            print(f"{available_player} NEW PLAYER!")
+            players_pool.append(Footballer(available_player, 5))
+        
+        #TODO: questa condizione non va, trovo sempre duccio
+        available_players.append(players_pool[available_players_names in players_pool])
+    
+    for av in available_players:
+        print(f"Availables-> {av.name}\n")
+
+    Teams.create_teams(available_players_names)
+    # print("\navailable players:\n\n")
+
+
