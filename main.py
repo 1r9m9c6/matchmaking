@@ -1,3 +1,5 @@
+from tkinter import filedialog
+
 from footballer import Footballer
 from teams import Teams
 
@@ -14,6 +16,12 @@ Footballer(name="Duccio", start_rank=1),
 if __name__ == "__main__":
 
     # Read pool of players from csv
+    path = filedialog.askopenfilename(initialdir="~/Desktop/cancella", filetypes=[("footballers", ".csv")])
+    f = open(path, 'r')
+    f = f.read()
+
+    for pl in players_pool:
+        print(f"{pl.name}, {pl.start_rank}, {pl.wins}, {pl.losses}, {pl.draws}, {pl.points}")
 
     # sort the pool of players (list) by alphabetic order 
     players_pool.sort(key=lambda player: player.name.lower())
